@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LSJ Silks | Elegance in Every Drape</title>
+<meta name="description" content="LSJ Silks — premium sarees, silk sarees, fancy sarees and selected sale collections.">
+<style>
+:root{--wine:#65142f;--wine2:#8d2450;--gold:#c79a45;--cream:#fffaf3;--ink:#211a1d;--muted:#756b70;--line:#eadfce;--green:#168a4b}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,Arial,sans-serif}a{text-decoration:none;color:inherit}button,input,select{font:inherit}
+.top{background:var(--wine);color:#fff;text-align:center;padding:9px;font-size:13px;letter-spacing:.3px}
+header{position:sticky;top:0;z-index:50;background:#fffdf9;border-bottom:1px solid var(--line)}.nav{max-width:1250px;margin:auto;display:flex;align-items:center;gap:22px;padding:12px 18px}
+.logo{display:flex;align-items:center;gap:9px;min-width:190px}.logo img{width:48px;height:48px;object-fit:cover;border-radius:50%}.logo b{font:700 22px Georgia,serif;color:var(--wine)}.logo small{display:block;letter-spacing:2px;color:var(--gold);font-size:8px}
+.links{display:flex;gap:20px;flex:1;justify-content:center;font-size:14px}.links a:hover{color:var(--wine2)}.navright{display:flex;gap:8px;align-items:center}.search{width:170px;border:1px solid var(--line);border-radius:22px;padding:9px 13px;background:#fff}.round{border:1px solid var(--line);background:#fff;border-radius:50%;width:40px;height:40px;cursor:pointer}.hamb{display:none}
+.hero{max-width:1250px;margin:18px auto;padding:0 18px}.heroBox{min-height:430px;border-radius:22px;overflow:hidden;position:relative;background:linear-gradient(115deg,#531025,#8e2047 50%,#c99943);color:#fff}.heroText{position:relative;z-index:2;padding:58px;max-width:620px}.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase}.hero h1{font:700 56px Georgia,serif;margin:13px 0}.hero p{font-size:17px;line-height:1.6;max-width:520px}.offer{display:inline-block;background:#ffd44e;color:#4f1024;padding:11px 16px;border-radius:7px;font-weight:800;margin:10px 0}.cta{display:inline-block;background:#fff;color:var(--wine);padding:12px 18px;border-radius:24px;font-weight:800;margin-top:8px}.heroLogo{position:absolute;right:4%;top:8%;height:84%;max-width:45%;object-fit:contain;opacity:.93}
+.wrap{max-width:1250px;margin:auto;padding:0 18px}.section{padding:48px 0}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}.head h2{font:700 30px Georgia,serif;color:var(--wine);margin:0}.head p{color:var(--muted);margin:5px 0}.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.cat{background:#fff;border:1px solid var(--line);border-radius:15px;padding:22px 10px;text-align:center;cursor:pointer}.cat:hover{box-shadow:0 10px 25px #0000000c;transform:translateY(-2px)}.cat .emoji{font-size:28px}.cat b{display:block;margin-top:8px}.cat small{color:var(--muted)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}.pill{border:1px solid var(--line);background:#fff;border-radius:22px;padding:9px 14px;cursor:pointer}.pill.active,.pill:hover{background:var(--wine);color:#fff;border-color:var(--wine)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative}.photo{height:310px;background:linear-gradient(135deg,#ead3d5,#f2e4c8);display:flex;align-items:center;justify-content:center;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover}.placeholder{font:700 50px Georgia,serif;color:#fff7;letter-spacing:5px}.badge{position:absolute;top:10px;left:10px;background:var(--wine);color:#fff;padding:6px 9px;border-radius:6px;font-size:11px;font-weight:800}.info{padding:14px}.info h3{font:600 17px Georgia,serif;margin:0 0 7px}.stars{font-size:12px;color:#a17425}.price{font-weight:800;margin-top:8px}.old{text-decoration:line-through;color:#999;font-weight:400;font-size:13px;margin-left:5px}
+.photo{position:relative;overflow:hidden}.quickQty{position:absolute;right:8px;bottom:8px;display:flex;align-items:center;background:#7a1236;color:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.18);z-index:3}
+.quickQty button{width:38px;height:38px;border:0;background:transparent;color:#fff;font-size:24px;font-weight:700;line-height:38px;cursor:pointer}
+.quickQty .qnum{min-width:32px;text-align:center;font-size:16px;font-weight:800}
+.addQuick{position:absolute;right:8px;bottom:8px;border:2px solid #7a1236;background:#fff;color:#7a1236;border-radius:10px;padding:9px 18px;font-weight:800;font-size:15px;cursor:pointer;z-index:3}
+.actions2{display:flex;gap:7px;margin-top:12px}.add,.details{flex:1;border:0;padding:10px;border-radius:8px;cursor:pointer;font-weight:800}.add{background:var(--wine);color:#fff}.details{background:#f5eee4;color:var(--wine)}
+.banner{background:linear-gradient(120deg,#fff,#f3e5d0);border:1px solid var(--line);border-radius:20px;padding:34px;display:flex;justify-content:space-between;align-items:center}.banner h2{font:700 33px Georgia,serif;color:var(--wine);margin:0 0 7px}.banner p{color:var(--muted);margin:0}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.feature{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}.feature b{color:var(--wine);display:block;margin-bottom:5px}.feature span{font-size:13px;color:var(--muted)}
+footer{background:#2b101b;color:#eee;margin-top:55px}.foot{max-width:1250px;margin:auto;padding:40px 18px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:25px}.foot h3{font:700 18px Georgia,serif;color:#e9bd5b}.foot p,.foot a{font-size:13px;line-height:1.8;color:#d9c8ca}.copy{text-align:center;border-top:1px solid #ffffff20;padding:14px;font-size:12px;color:#cbbcc0}
+.drawer{position:fixed;right:0;top:0;height:100%;width:390px;background:#fff;z-index:100;box-shadow:-10px 0 30px #0002;transform:translateX(105%);transition:.25s;padding:22px;overflow:auto}.drawer.open{transform:none}.close{float:right;border:0;background:#f5eee4;border-radius:50%;width:36px;height:36px;cursor:pointer}.drawer h2{font:700 25px Georgia,serif;color:var(--wine)}.cartitem{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:12px 0;font-size:13px}.qty{display:flex;gap:5px}.qty button{border:1px solid var(--line);background:#fff;width:28px;height:28px}.total{display:flex;justify-content:space-between;font-weight:800;margin:18px 0}.wa{display:block;background:#25D366;color:#fff;text-align:center;padding:13px;border-radius:9px;font-weight:800}
+
+.checkoutForm{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}.checkoutForm h3{font:700 20px Georgia,serif;color:var(--wine);margin:0 0 12px}.checkoutForm input,.checkoutForm textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;margin-bottom:9px;background:#fff}.checkoutForm textarea{min-height:75px;resize:vertical}.formrow{display:grid;grid-template-columns:1fr 1fr;gap:8px}.paynote{font-size:12px;color:var(--muted);margin:4px 0 10px}
+
+.paymentBox{margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:12px;background:#fffaf4;text-align:center}.paymentBox h3{font:700 20px Georgia,serif;color:var(--wine);margin:0 0 8px}.paymentQR{width:230px;height:230px;object-fit:contain;background:#fff;border-radius:8px;margin:8px auto;display:block}.upiId{font-weight:800;color:var(--wine);word-break:break-all}.paymentHelp{font-size:12px;color:var(--muted);line-height:1.5;margin:7px 0 12px}.paidBtn{background:var(--wine);color:#fff;border:0;padding:12px 16px;border-radius:9px;font-weight:800;cursor:pointer;width:100%}
+
+.checkoutActions{margin-top:12px}.checkoutBtn{display:block;width:100%;border:0;background:var(--wine);color:#fff;padding:13px;border-radius:9px;font-weight:800;cursor:pointer}.checkoutBtn:disabled{opacity:.5;cursor:not-allowed}
+.checkoutStep{display:none}.checkoutStep.show{display:block}.backCart{border:1px solid var(--line);background:#fff;color:var(--wine);padding:9px 12px;border-radius:8px;cursor:pointer;margin-bottom:12px}
+.modal{position:fixed;inset:0;background:#0008;z-index:120;display:none;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modalbox{background:#fff;border-radius:18px;max-width:850px;width:100%;max-height:90vh;overflow:auto;padding:22px}.modalgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.modalpic{height:430px;background:linear-gradient(135deg,#ead3d5,#f2e4c8);border-radius:12px;display:flex;align-items:center;justify-content:center}.modalpic img{width:100%;height:100%;object-fit:cover;border-radius:12px}.modal h2{font:700 30px Georgia,serif;color:var(--wine)}.close2{float:right;border:0;background:#f5eee4;border-radius:50%;width:36px;height:36px}
+.admin{display:none}.admin.show{display:block}.adminbox{max-width:1000px;margin:25px auto;padding:20px;background:#fff;border:1px solid var(--line);border-radius:16px}.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.formgrid input,.formgrid select{padding:11px;border:1px solid var(--line);border-radius:8px}.primary{background:var(--wine);color:#fff;border:0;padding:11px 16px;border-radius:8px;cursor:pointer;font-weight:800}
+@media(max-width:900px){.links{display:none}.hamb{display:block}.search{width:130px}.cats{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.heroLogo{opacity:.25;max-width:75%}.features{grid-template-columns:repeat(2,1fr)}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.nav{padding:10px}.logo{min-width:0}.logo img{width:40px;height:40px}.logo b{font-size:18px}.search{display:none}.cats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr);gap:9px}.photo{height:220px}.heroText{padding:32px 25px}.hero h1{font-size:40px}.hero{padding:0 10px}.wrap{padding:0 10px}.section{padding:35px 0}.banner{display:block}.features{grid-template-columns:1fr}.foot{grid-template-columns:1fr}.drawer{width:100%}.modalgrid{grid-template-columns:1fr}.modalpic{height:300px}}
+</style>
+</head>
+<a href="admin.html" style="position:fixed;right:12px;top:12px;z-index:100;background:#7a1236;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;font-size:12px;font-weight:700">ADMIN</a><body>
+<div class="top">✨ LSJ SILKS • Selected Sarees Up to 50% OFF • WhatsApp Ordering Available</div>
+<header><nav class="nav">
+<button class="round hamb" onclick="document.getElementById('links').style.display='flex'">☰</button>
+<a class="logo" href="#"><img src="lsj-logo.png" alt="LSJ Silks"><div><b>LSJ SILKS</b><small>ELEGANCE IN EVERY DRAPE</small></div></a>
+<div class="links" id="links"><a href="#shop">Sarees</a><a href="#categories">Categories</a><a href="#sale">Sale</a><a href="#new">New Arrivals</a><a href="#contact">Contact</a></div>
+<div class="navright"><input id="search" class="search" placeholder="Search sarees..." oninput="render()"><button class="round" id="cartBtn" onclick="openCart()">🛍️<span id="cartCount" style="font-size:10px;font-weight:800;color:var(--wine)"> 0</span></button></div>
+</nav></header>
+
+<section class="hero"><div class="heroBox"><div class="heroText">
+<div class="eyebrow">LSJ SILKS • CURATED COLLECTION</div><h1>Elegance in Every Drape</h1>
+<p>Shop silk, festive, fancy and everyday sarees. Discover selected styles with special offers and easy WhatsApp ordering.</p>
+<div class="offer">UP TO 50% OFF — SELECTED SAREES ONLY</div><br><a class="cta" href="#shop">SHOP NOW →</a>
+</div><img class="heroLogo" src="lsj-logo.png" alt="">
+</div></section>
+
+<main class="wrap">
+<section class="section" id="categories"><div class="head"><div><h2>Shop by Category</h2><p>Explore collections for every occasion</p></div></div>
+<div class="cats">
+<div class="cat" onclick="setFilter('Silk Sarees')"><div class="emoji">🪷</div><b>Silk Sarees</b><small>Premium weaves</small></div>
+<div class="cat" onclick="setFilter('Fancy Sarees')"><div class="emoji">✨</div><b>Fancy Sarees</b><small>Party & festive</small></div>
+<div class="cat" onclick="setFilter('Daily Wear')"><div class="emoji">🌸</div><b>Daily Wear</b><small>Light & comfortable</small></div>
+<div class="cat" onclick="setFilter('Wedding')"><div class="emoji">💍</div><b>Wedding</b><small>Grand occasions</small></div>
+<div class="cat" onclick="setFilter('Sale')"><div class="emoji">🔥</div><b>Selected Sale</b><small>Up to 50% off</small></div>
+</div></section>
+
+<section class="section" id="shop"><div class="head"><div><h2 id="new">Featured Sarees</h2><p>Fresh LSJ Silks collection</p></div></div>
+<div class="filters"><button class="pill active" onclick="setFilter('All')">All</button><button class="pill" onclick="setFilter('Silk Sarees')">Silk</button><button class="pill" onclick="setFilter('Fancy Sarees')">Fancy</button><button class="pill" onclick="setFilter('Wedding')">Wedding</button><button class="pill" onclick="setFilter('Daily Wear')">Daily Wear</button><button class="pill" onclick="setFilter('Sale')">50% OFF Selected</button></div>
+<div class="grid" id="products"></div></section>
+
+<section class="section" id="sale"><div class="banner"><div><h2>Selected Sarees Sale</h2><p><b>Up to 50% OFF</b> applies only to marked selected products — not the entire collection.</p></div><button class="primary" onclick="setFilter('Sale')">VIEW SALE</button></div></section>
+
+<section class="section"><div class="head"><div><h2>Why Shop LSJ Silks?</h2><p>Simple shopping with personal support</p></div></div>
+<div class="features"><div class="feature"><b>Premium Quality</b><span>Carefully selected fabrics and designs.</span></div><div class="feature"><b>Traditional Weaves</b><span>Silk and ethnic styles for special occasions.</span></div><div class="feature"><b>WhatsApp Orders</b><span>Send your selection directly to our team.</span></div><div class="feature"><b>Personal Assistance</b><span>Ask about colours, availability and pricing.</span></div></div></section>
+
+<section class="admin" id="admin"><div class="adminbox"><h2>LSJ Silks — Product Manager</h2><p>Add your real sarees here. Products are stored in this browser for the demo.</p>
+<div class="formgrid"><input id="pn" placeholder="Product name"><input id="pc" placeholder="Category (e.g. Silk Sarees)"><input id="pp" type="number" placeholder="Selling price"><input id="po" type="number" placeholder="Original price"><input id="pi" placeholder="Image URL (optional)"><select id="ps"><option value="false">Regular price</option><option value="true">Selected 50% OFF</option></select></div><br><button class="primary" onclick="addProduct()">Add Product</button> <button class="primary" onclick="resetProducts()">Reset Demo Products</button></div></section>
+</main>
+
+<footer id="contact"><div class="foot"><div><h3>LSJ SILKS</h3><p>Elegance in Every Drape.<br>Premium sarees, silk sarees, fancy sarees and ethnic wear.</p></div><div><h3>Collections</h3><p><a href="#shop">All Sarees</a><br><a href="#categories">Categories</a><br><a href="#sale">Selected Sale</a></p></div><div><h3>Contact</h3><p>📞 <a href="tel:+917095958417">+91 70959 58417</a><br>💬 <a href="https://wa.me/917095958417">Call & WhatsApp</a><br>💬 <a href="https://wa.me/917013096613">7013096613 — WhatsApp only</a></p></div><div><h3>Orders</h3><p>For photos, availability, pricing and orders, message us on WhatsApp.</p><p><a href="#" onclick="adminLogin();return false">Admin</a></p></div></div><div class="copy">© 2026 LSJ Silks. All rights reserved.</div><p style="font-size:11px;color:#8a7b80;text-align:center;margin:18px 0">Product photos are reference images sourced from public web listings. Replace with LSJ-owned or supplier-authorized photos for commercial use.</p></footer>
+
+<div class="drawer" id="drawer"><button class="close" onclick="closeCart()">×</button><h2>Your Cart</h2><p style="font-size:13px;color:var(--muted)">Review all selected sarees here. <b>Checkout is the final step.</b></p><p id="cartStepLabel" style="font-size:13px;color:var(--muted)">Select your required sarees, open the cart, then tap <b>CHECKOUT</b>.</p><div id="cartItems"></div><div class="total"><span>Total</span><span id="total">₹0</span></div>
+<div class="checkoutActions"><button id="checkoutBtn" class="checkoutBtn" onclick="showCheckout()">CHECKOUT</button></div>
+<div id="checkoutStatus" style="display:none;margin:10px 0;padding:10px;border-radius:8px;background:#fff3f3;color:#7a1635;font-size:13px"></div><div class="checkoutStep" id="checkoutStep"><button class="backCart" onclick="backToCart()">← Back to Cart</button><div class="checkoutForm">
+<h3>Delivery Details</h3>
+<input id="custName" placeholder="Full name *" autocomplete="name">
+<div class="formrow">
+<input id="custPhone" placeholder="Mobile number *" inputmode="tel" autocomplete="tel">
+<input id="custPin" placeholder="PIN code *" inputmode="numeric" autocomplete="postal-code">
+</div>
+<input id="custAddress" placeholder="House / Flat / Street *" autocomplete="street-address">
+<input id="custArea" placeholder="Area / Locality *">
+<div class="formrow">
+<input id="custCity" placeholder="City *" autocomplete="address-level2">
+<input id="custState" placeholder="State *" autocomplete="address-level1">
+</div>
+<textarea id="custNote" placeholder="Delivery note (optional)"></textarea>
+<div class="paymentBox">
+<h3>Pay by PhonePe / UPI</h3>
+<img class="paymentQR" src="phonepe-upi-qr.png" alt="LSJ Silks PhonePe UPI QR code">
+<div class="upiId">UPI ID: reddyvarilatha8-1@okhdfcbank</div>
+<div class="paymentHelp">Scan the QR with PhonePe or any UPI app and pay the order total shown above.<br>COD is not available. Prepaid payment only.</div>
+<button class="paidBtn" onclick="orderOnWhatsApp()">I HAVE PAID — SEND ORDER ON WHATSAPP</button>
+</div>
+</div></div>
+
+<div class="modal" id="modal"><div class="modalbox"><button class="close2" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+
+<script>
+const demo=[
+{id:1,name:"Cherry Red Kancheepuram Silk Saree",cat:"Silk Sarees",price:1499,old:2998,sale:true,img:"https://kerala.pothys.com/cdn/shop/files/1_dc71949e-adc3-4fd3-a252-d1a0fcdcc151.jpg?v=1775826413&width=2048"},
+{id:2,name:"Royal Purple Katan Banarasi Silk Saree",cat:"Silk Sarees",price:1899,old:3798,sale:true,img:"https://www.atulyakarigari.com/cdn/shop/files/IMC1778_4165c6fb-0b94-4013-a77f-4e89f0b4cd2d.jpg?v=1748259018&width=1946"},
+{id:3,name:"Peach & Wine Semi Banarasi Silk Saree",cat:"Fancy Sarees",price:1299,old:1899,sale:false,img:"https://docket.kartmax.in/sites/9s145MyZrWdIAwpU0JYS/product-images/peach_and_wine_semi_banarasi_silk_zari_saree_1767611628_AS3508134_1.jpg"},
+{id:4,name:"Green Silk Woven Banarasi Saree",cat:"Wedding",price:1699,old:3398,sale:true,img:"https://sudathi.com/cdn/shop/files/1749017057235_4485S983__1.jpg?v=1756405744"},
+{id:5,name:"Mulberry Purple Kanchipuram Silk Saree",cat:"Silk Sarees",price:2199,old:4398,sale:true,img:"https://i.pinimg.com/originals/57/a0/2a/57a02a0f92f6bfa7256a8ab1cf06771e.jpg"},
+{id:6,name:"Kanchipuram Pure Silk Brocade Saree",cat:"Wedding",price:2499,old:4998,sale:true,img:"https://gadwalweaverssociety.in/cdn/shop/files/kanchiselfbrocade_5.jpg?v=1773486712&width=1024"},
+{id:7,name:"Ruby Red Silk Kanchipuram Saree",cat:"Wedding",price:2299,old:4598,sale:true,img:"https://www.andaazfashion.co.uk/media/catalog/product/cache/1/image/1000x1000/040ec09b1e35df139433887a97daa66f/s/a/sarv172730_1.jpg"},
+{id:8,name:"Purple Banarasi Silk Saree",cat:"Fancy Sarees",price:1599,old:3198,sale:true,img:"https://i.pinimg.com/originals/bc/2a/03/bc2a03af1007cd1578760131addfa691.jpg"}
+];
+let products=demo;
+try{
+  const saved=localStorage.getItem("lsjProducts");
+  if(saved){
+    const parsed=JSON.parse(saved);
+    if(Array.isArray(parsed) && parsed.length) products=parsed;
+  }
+}catch(e){ products=demo; }
+let filter="All",cart=[];
+const money=n=>"₹"+Number(n).toLocaleString("en-IN");
+function setFilter(v){filter=v;document.querySelectorAll(".pill").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".pill").forEach(x=>{if((v==="Sale"&&x.textContent.includes("50%"))||(v==="All"&&x.textContent==="All")||(v!=="All"&&v!=="Sale"&&x.textContent.toLowerCase().includes(v.split(" ")[0].toLowerCase())))x.classList.add("active")});render();document.getElementById("shop").scrollIntoView({behavior:"smooth"})}
+function render(){
+let q=(document.getElementById("search").value||"").toLowerCase();
+let list=products.filter(p=>(filter==="All"||(filter==="Sale"?p.sale:p.cat===filter))&&p.name.toLowerCase().includes(q));
+document.getElementById("products").innerHTML=list.map(p=>{
+  let inCart=cart.find(x=>x.id===p.id);
+  let qty=inCart?inCart.qty:0;
+  let control=qty>0
+    ? `<div class="quickQty"><button onclick="event.stopPropagation();changeProductQty(${p.id},-1)">−</button><span class="qnum">${qty}</span><button onclick="event.stopPropagation();changeProductQty(${p.id},1)">+</button></div>`
+    : `<button class="addQuick" onclick="event.stopPropagation();add(${p.id})">ADD</button>`;
+  return `<article class="card">
+    <div class="photo">${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}">`:`<div class="placeholder">LSJ</div>`}
+      <span class="badge">${p.sale?"50% OFF • SELECTED":"LSJ SILKS"}</span>${control}
+    </div>
+    <div class="info"><h3>${esc(p.name)}</h3><div class="stars">★★★★★ Premium Pick</div>
+      <div class="price">${money(p.price)} ${p.old?`<span class="old">${money(p.old)}</span>`:""}</div>
+      <div class="actions2"><button class="details" onclick="details(${p.id})">VIEW</button></div>
+    </div>
+  </article>`;
+}).join("")||"<p>No sarees found.</p>";
+}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function details(id){let p=products.find(x=>x.id===id);document.getElementById("modalContent").innerHTML=`<div class="modalgrid"><div class="modalpic">${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}">`:`<div class="placeholder">LSJ SILKS</div>`}</div><div><h2>${esc(p.name)}</h2><p><b>Category:</b> ${esc(p.cat)}</p><p><b>Price:</b> ${money(p.price)} ${p.old?`<span class="old">${money(p.old)}</span>`:""}</p>${p.sale?`<p><b style="color:#65142f">Selected offer: Up to 50% OFF</b></p>`:""}<p>Contact us on WhatsApp for actual product photos, availability, colour options and final order confirmation.</p><button class="primary" onclick="add(${p.id});closeModal()">ADD TO WHATSAPP CART</button></div></div>`;document.getElementById("modal").classList.add("show")}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+function add(id){
+  let p=products.find(x=>x.id===id);
+  let item=cart.find(x=>x.id===id);
+  if(item){ item.qty++; } else { cart.push({id:p.id,qty:1}); }
+  updateCart();
+  render();
+}
+function changeProductQty(id,n){
+  let item=cart.find(x=>x.id===id);
+  if(!item && n>0){ cart.push({id:id,qty:1}); }
+  else if(item){
+    item.qty+=n;
+    if(item.qty<=0) cart=cart.filter(x=>x.id!==id);
+  }
+  updateCart();
+  render();
+}
+function updateCart(){let total=0;document.getElementById("cartItems").innerHTML=cart.length?cart.map(x=>{let p=products.find(y=>y.id===x.id);total+=p.price*x.qty;return `<div class="cartitem"><span>${esc(p.name)}<br>${money(p.price)} × ${x.qty}</span><span class="qty"><button onclick="change(${p.id},-1)">−</button><button onclick="change(${p.id},1)">+</button></span></div>`}).join(""):"<p>Your cart is empty.</p>";document.getElementById("total").textContent=money(total);
+document.getElementById("cartCount").textContent=" "+cart.reduce((s,x)=>s+x.qty,0);
+}
+function orderOnWhatsApp(){
+if(!cart.length){return}
+const name=document.getElementById("custName").value.trim(),phone=document.getElementById("custPhone").value.trim(),pin=document.getElementById("custPin").value.trim(),address=document.getElementById("custAddress").value.trim(),area=document.getElementById("custArea").value.trim(),city=document.getElementById("custCity").value.trim(),state=document.getElementById("custState").value.trim(),note=document.getElementById("custNote").value.trim();
+if(!name||!phone||!pin||!address||!area||!city||!state){return}
+if(!/^[0-9]{10}$/.test(phone.replace(/\D/g,""))){return}
+if(!/^[0-9]{6}$/.test(pin)){return}
+let total=0;let items=cart.map(x=>{let p=products.find(y=>y.id===x.id);total+=p.price*x.qty;return `${p.name} × ${x.qty} — ${money(p.price*x.qty)}`}).join("\n");
+let msg=`Hello LSJ Silks, I want to place an order.\n\nCUSTOMER DETAILS\nName: ${name}\nMobile: ${phone}\nAddress: ${address}, ${area}, ${city}, ${state} - ${pin}\n${note?"Delivery note: "+note+"\n":""}\nORDER\n${items}\n\nEstimated total: ${money(total)}\n\nPlease confirm availability and delivery charges. I have paid the order amount by UPI. COD is not available.`;
+sendConfirmationToBoth(msg);
+}
+function change(id,n){let x=cart.find(y=>y.id===id);x.qty+=n;if(x.qty<=0)cart=cart.filter(y=>y.id!==id);updateCart()}
+
+function showCheckoutStatus(message){
+  const el=document.getElementById("checkoutStatus");
+  if(el){ el.textContent=message; el.style.display="block"; }
+}
+function showCheckout(){
+  if(!cart.length){return}
+  document.getElementById("checkoutStep").classList.add("show");
+  document.querySelector(".checkoutActions").style.display="none";
+  document.getElementById("cartItems").style.display="none";
+  document.getElementById("drawer").querySelector(".total").style.display="flex";
+  updateCart();
+}
+function backToCart(){
+  document.getElementById("checkoutStep").classList.remove("show");
+  document.querySelector(".checkoutActions").style.display="block";
+  document.getElementById("cartItems").style.display="block";
+}
+function openCart(){backToCart();updateCart();document.getElementById("drawer").classList.add("open")}function closeCart(){document.getElementById("drawer").classList.remove("open")}
+function adminLogin(){
+  let p=prompt("Enter admin password");
+  if(p==="LSJ2026"){
+    document.getElementById("admin").classList.add("show");
+    document.getElementById("admin").scrollIntoView({behavior:"smooth"});
+  }
+}
+function resetProducts(){if(confirm("Reset to demo products?")){products=demo;localStorage.setItem("lsjProducts",JSON.stringify(products));render()}}
+
+function sendConfirmationToBoth(msg){
+  const text = encodeURIComponent(msg);
+  // WhatsApp can only open one chat per browser action reliably, so open
+  // the first number and provide the second as a second WhatsApp link.
+  window.open("https://wa.me/917095958417?text="+text, "_blank");
+  setTimeout(function(){
+    window.open("https://wa.me/917013096613?text="+text, "_blank");
+  }, 500);
+}
+
+render();updateCart();
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LSJ Silks Admin</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f3ef;font-family:Arial;color:#302827}
+header{background:#7a1236;color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
+header b{font:700 24px Georgia,serif}header a,header button{color:#fff;background:transparent;border:1px solid #fff8;padding:8px 12px;border-radius:7px;text-decoration:none}
+main{max-width:1150px;margin:20px auto;padding:0 15px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat,.panel{background:#fff;border:1px solid #e5d9d1;border-radius:12px;padding:16px}.stat b{display:block;font-size:28px;color:#7a1236}.stat span{font-size:12px;color:#766b66}
+.layout{display:grid;grid-template-columns:380px 1fr;gap:15px;margin-top:15px}.panel h2{margin:0 0 14px;color:#7a1236;font:700 21px Georgia,serif}
+label{font-size:12px;color:#766b66;display:block;margin:8px 0 4px}input,select,textarea{width:100%;padding:10px;border:1px solid #ded2cb;border-radius:8px;margin-bottom:5px}textarea{min-height:80px}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.checks{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0}.checks label{display:flex;align-items:center;gap:5px}.checks input{width:auto;margin:0}
+.btn{border:0;border-radius:8px;padding:10px 13px;background:#7a1236;color:#fff;font-weight:700;cursor:pointer}.secondary{background:#eee5df;color:#7a1236}.danger{background:#a52b2b}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.product{border:1px solid #e5d9d1;border-radius:10px;overflow:hidden;background:#fff}.product img{width:100%;height:170px;object-fit:cover;background:#eee}.body{padding:9px}.body h3{font-size:14px;margin:0 0 5px}.meta{font-size:11px;color:#766b66;margin-bottom:8px}.actions{display:flex;gap:6px}
+#login{position:fixed;inset:0;background:#32121fdd;display:flex;align-items:center;justify-content:center;z-index:20}.login{background:#fff;padding:25px;border-radius:14px;width:min(92vw,380px)}.login h1{font:700 26px Georgia;color:#7a1236}.msg{font-size:12px;color:#7a1236;margin-top:8px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(2,1fr)}}@media(max-width:500px){.products{grid-template-columns:1fr}}
+</style></head><body>
+
+<div id="login"><div class="login">
+<h1>LSJ Silks Admin</h1><p>Sign in to manage your store.</p>
+<label>Email</label><input id="email" type="email" placeholder="admin@lsjsilks.com">
+<label>Password</label><input id="pass" type="password" placeholder="Password">
+<button class="btn" style="width:100%" onclick="login()">LOGIN</button>
+<div id="loginMsg" class="msg"></div>
+<p style="font-size:11px;color:#766b66">Demo browser version. Production should use server-side authentication.</p>
+</div></div>
+
+<header><b>LSJ Silks Admin</b><div><a href="index.html">View Store</a> <button onclick="logout()">Logout</button></div></header>
+<main>
+<section class="stats">
+<div class="stat"><b id="total">0</b><span>Total Products</span></div>
+<div class="stat"><b id="newCount">0</b><span>New Arrivals</span></div>
+<div class="stat"><b id="saleCount">0</b><span>Selected 50% OFF</span></div>
+<div class="stat"><b id="stockCount">0</b><span>Total Stock</span></div>
+</section>
+
+<div class="layout">
+<section class="panel">
+<h2 id="title">Add Product</h2>
+<input id="editId" type="hidden">
+<label>Product Title *</label><input id="name" placeholder="Royal Blue Banarasi Silk Saree">
+<div class="row"><div><label>Category</label><select id="cat"><option>Silk Sarees</option><option>Wedding</option><option>Fancy Sarees</option><option>New Arrivals</option></select></div>
+<div><label>Stock</label><input id="stock" type="number" min="0" value="1"></div></div>
+<div class="row"><div><label>Selling Price ₹ *</label><input id="price" type="number"></div><div><label>MRP ₹</label><input id="old" type="number"></div></div>
+<div class="checks"><label><input id="newArrival" type="checkbox"> New Arrival</label><label><input id="sale" type="checkbox"> Selected 50% OFF</label><label><input id="visible" type="checkbox" checked> Visible</label></div>
+<label>Description</label><textarea id="desc"></textarea>
+<label>Product Photos — select multiple</label><input id="photos" type="file" accept="image/*" multiple>
+<div id="preview"></div>
+<div style="display:flex;gap:7px;margin-top:10px"><button class="btn" onclick="save()">SAVE PRODUCT</button><button class="btn secondary" onclick="clearForm()">CLEAR</button></div>
+<p id="msg" class="msg"></p>
+</section>
+
+<section class="panel"><h2>Products</h2><input id="search" placeholder="Search products" oninput="render()"><div id="products" class="products"></div></section>
+</div></main>
+
+<script>
+const KEY="lsjProducts";let products=[];let images=[];
+
+function login(){if(document.getElementById("email").value.trim()==="admin@lsjsilks.com"&&document.getElementById("pass").value==="LSJ2026"){sessionStorage.lsjAdmin="1";document.getElementById("login").style.display="none"}else document.getElementById("loginMsg").textContent="Invalid email or password."}
+function logout(){sessionStorage.removeItem("lsjAdmin");location.reload()}
+if(sessionStorage.lsjAdmin==="1")document.getElementById("login").style.display="none";
+try{products=JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){products=[]}
+function saveData(){localStorage.setItem(KEY,JSON.stringify(products));render();stats()}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function money(n){return "₹"+Number(n||0).toLocaleString("en-IN")}
+document.getElementById("photos").onchange=function(){
+ images=[];document.getElementById("preview").innerHTML="";
+ [...this.files].forEach(f=>{let r=new FileReader();r.onload=e=>{images.push(e.target.result);let im=document.createElement("img");im.src=e.target.result;im.style="width:65px;height:65px;object-fit:cover;border-radius:7px;margin:4px";document.getElementById("preview").appendChild(im)};r.readAsDataURL(f)})
+};
+function save(){
+ let name=document.getElementById("name").value.trim(),price=Number(document.getElementById("price").value);
+ if(!name||!price){document.getElementById("msg").textContent="Title and price are required.";return}
+ let id=Number(document.getElementById("editId").value)||Date.now(),old=products.find(p=>p.id===id);
+ let imgs=images.length?images:(old?.images||[old?.img||""]).filter(Boolean);
+ let p={id,name,cat:document.getElementById("cat").value,price,old:Number(document.getElementById("old").value)||0,stock:Number(document.getElementById("stock").value)||0,newArrival:document.getElementById("newArrival").checked,sale:document.getElementById("sale").checked,visible:document.getElementById("visible").checked,desc:document.getElementById("desc").value.trim(),img:imgs[0]||"",images:imgs};
+ if(old)products=products.map(x=>x.id===id?p:x);else products.unshift(p);
+ saveData();clearForm();document.getElementById("msg").textContent="Product saved.";
+}
+function edit(id){
+ let p=products.find(x=>x.id===id);if(!p)return;
+ document.getElementById("editId").value=p.id;document.getElementById("name").value=p.name;document.getElementById("cat").value=p.cat||"Silk Sarees";document.getElementById("price").value=p.price;document.getElementById("old").value=p.old||"";document.getElementById("stock").value=p.stock||0;document.getElementById("newArrival").checked=!!p.newArrival;document.getElementById("sale").checked=!!p.sale;document.getElementById("visible").checked=p.visible!==false;document.getElementById("desc").value=p.desc||"";images=p.images||[p.img].filter(Boolean);document.getElementById("title").textContent="Edit Product";window.scrollTo({top:0,behavior:"smooth"})
+}
+function del(id){if(confirm("Delete this product?")){products=products.filter(p=>p.id!==id);saveData()}}
+function clearForm(){document.getElementById("editId").value="";document.getElementById("name").value="";document.getElementById("price").value="";document.getElementById("old").value="";document.getElementById("stock").value=1;document.getElementById("desc").value="";document.getElementById("photos").value="";document.getElementById("preview").innerHTML="";document.getElementById("newArrival").checked=false;document.getElementById("sale").checked=false;document.getElementById("visible").checked=true;images=[];document.getElementById("title").textContent="Add Product"}
+function stats(){document.getElementById("total").textContent=products.length;document.getElementById("newCount").textContent=products.filter(p=>p.newArrival).length;document.getElementById("saleCount").textContent=products.filter(p=>p.sale).length;document.getElementById("stockCount").textContent=products.reduce((a,p)=>a+Number(p.stock||0),0)}
+function render(){let q=document.getElementById("search").value.toLowerCase(),list=products.filter(p=>(p.name||"").toLowerCase().includes(q));document.getElementById("products").innerHTML=list.length?list.map(p=>`<article class="product"><img src="${esc(p.img)}"><div class="body"><h3>${esc(p.name)}</h3><div class="meta">${esc(p.cat)} · ${money(p.price)} · Stock ${p.stock||0}${p.newArrival?" · NEW":""}${p.sale?" · 50% OFF":""}</div><div class="actions"><button class="btn secondary" onclick="edit(${p.id})">EDIT</button><button class="btn danger" onclick="del(${p.id})">DELETE</button></div></div></article>`).join(""):'<p style="color:#766b66">No products. Add one from the form.</p>'}
+stats();render();
+</script></body></html>
